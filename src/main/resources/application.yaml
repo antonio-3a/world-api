@@ -11,7 +11,7 @@ spring:
   application:
     name: antonio3a-world-api
   config:
-    import: optional:vault://
+    import: vault://
   cloud:
     vault:
       uri: ${VAULT_URI}
