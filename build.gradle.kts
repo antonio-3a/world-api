@@ -1,21 +1,21 @@
 import org.springframework.boot.buildpack.platform.build.PullPolicy
 import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
-val springdocOpenApiVersion = "2.5.0"
-val modelMapperVersion = "3.2.0"
+val springdocOpenApiVersion = "2.8.5"
+val modelMapperVersion = "3.2.2"
 val modelMapperModuleRecordVersion = "1.0.0"
-val keycloakVersion = "25.0.4"
+val keycloakVersion = "26.0.4"
 val lokiAppenderVersion = "1.5.2"
 
-extra["springCloudVersion"] = "2023.0.3"
+extra["springCloudVersion"] = "2024.0.0"
 
 group = "dev.antonio3a"
 version = "0.0.1-SNAPSHOT"
 
 plugins {
     java
-    id("org.springframework.boot") version "3.3.4"
-    id("io.spring.dependency-management") version "1.1.6"
+    id("org.springframework.boot") version "3.4.3"
+    id("io.spring.dependency-management") version "1.1.7"
     id("org.sonarqube") version "5.0.0.4638"
     id("org.springdoc.openapi-gradle-plugin") version "1.8.0"
     id("jacoco")
@@ -49,8 +49,12 @@ dependencies {
     runtimeOnly("com.mysql:mysql-connector-j")
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("org.springframework.graphql:spring-graphql-test")
     testImplementation("org.springframework:spring-webflux")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:mysql")
+    testImplementation("org.testcontainers:vault")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
